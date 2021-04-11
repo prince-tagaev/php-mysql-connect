@@ -19,80 +19,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4./js/bootstrap.min.js"></script>
     
   </head>
-  <body>
-
-  <div id="header">
+  <body class="bg-secondary p-3">
+<div class="container wrapper p-3 bg-white">
+  <div id="banner" class="text-center">
+    <!-- <h1 class="text-light p-3">ASABA ~ libRARY</h1> -->
+  </div>
+<div id="header">
   <?php include "navbar.php" ?>
   </div>
     
-<div class="wrapper" id="scroll-none">
+<div id="scroll-none">
 <main style="min-height: 440px;">
     <div class="container">
-      <?php
-      echo "Hello";
-      ?>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iure fugit ratione asperiores voluptates soluta perferendis atque nam cumque harum molestias odit odio in, inventore, facilis autem sequi! Sit temporibus autem suscipit. Soluta tempora quam aspernatur neque, quidem esse fuga quasi incidunt optio assumenda eius perspiciatis obcaecati cum velit doloribus culpa eaque ipsa corrupti, nobis enim harum amet. Voluptatum repellat temporibus magni ipsum enim. Est assumenda dolor ullam, magnam ut debitis architecto accusamus fugit quibusdam, quisquam consectetur unde sit saepe illo repudiandae eligendi. Ducimus illum voluptate culpa amet necessitatibus fuga itaque modi sequi quas deleniti, nobis doloremque. Officiis, sapiente. Ratione. Zuhridin
-
+     <div class="row p-2 justify-content-center">
+       <div class="col-7 bg-primary p-2 mr-2">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sequi voluptates porro ratione. Animi odio quaerat deleniti eum dicta illo voluptates id, inventore iure perspiciatis architecto delectus. Quasi, ratione officia?
+       </div>
+       <div class="col-4 bg-secondary p-2 text-white">
+         <ul>
+           <li><a href="#" class="text-warning" id="informatca-aside">Информатика</a></li>
+         </ul>
+       </div>
+     </div>
         
     </div>
 
 
 
 </main>
-<!-- begin books page -->
 
-<div class="books justify-content-center" id="books-index">
-        
- <div class="container">
- <div class="get-file-mysql mt-3 bg-light text-dark p-3" style="max-height:400px; min-height:400px;">
-        <span class="close">x</span>
-        <?php
-        
-        $data_connect = mysqli_connect("192.168.43.61","prince.tagaev","Prince211101","library");
-        $query = "SELECT * FROM `books`";
-        $result = mysqli_query($data_connect,$query);
-        while ($row = mysqli_fetch_array($result)){
-          
-          $files_dir = "files-data/".$row['bookName'];
-          $count_size = 0;
-          $file_size =  $count_size + filesize($files_dir);
-          if($file_size >= 1073741824)
-          {
-            $file_size = number_format($file_size / 1073741824) . ' GB';
-          }
-          elseif($file_size >= 1048576)
-          {
-            $file_size = number_format($file_size / 1048576) . ' MB';
-          }
-          elseif($file_size >= 1024)
-          {
-            $file_size = number_format($file_size / 1024) . ' KB';
-          }
-          elseif($file_size > 1)
-          {
-            $file_size = $file_size . " bytes";
-          }
-          elseif($file_size == 1)
-          {
-            $file_size = $file_size . ' byte';
-          }
-          else
-          {
-            $file_size = '0 bytes';
-          }
-          echo "<a download href='files-data/" . $row['bookName'] . "' class='text-dark'>" . $row['name'] ."</a>"  . "<i class='text-dark'>" ." - " . $file_size . "</i>" . "<br>";
-          
-          
-          // echo $row['name'] . filesize($files_dir);
-          // echo "<a href='files-data/$row['bookName']'>$row['name']</a>" . "<br>";
-          // echo "<a download href='$row['bookName']' class='text-white'>$file_name</a>" . "<br>";
-        }
-        ?>
-
-        </div>
- </div>
-        </div>
-        <!-- end books page -->
 </div>
 
 <footer class="w-100 bg-dark  text-light text-center" style="line-height:4">
@@ -147,6 +102,102 @@ days();
 
     ?>
 
+</div>
+<!-- begin books page -->
+
+<div class="books justify-content-center" id="books-index">
+        
+ <div class="container">
+ <div class="get-file-mysql mt-3 bg-light text-dark p-3" style="max-height:400px; min-height:400px;">
+        
+        <h3 class="text-center bg-secondary text-light p-2">Books <a href="informatic-database.php" class="insert-book btn btn-outline-warning p-2">Insert book</a> <span class="close text-light">x</span></h3>
+       <div class="row d-flex">
+         <div class="col-8 d-grid">
+         <?php
+        echo "<div class='books-name'>
+        <h3 class='p-2 bg-primary text-white mr-3'>Books name</h3>
+        </div>";
+        
+        ?>
+        
+        <?php
+        
+        $connect = include('admin/dbconfig.php');
+        $data_connect = mysqli_connect($host,$username,$password,$data_base);
+        $query = "SELECT * FROM `informatic`";
+        $result = mysqli_query($data_connect,$query);
+        
+        while ($row = mysqli_fetch_array($result)){
+          $img_url = "informatic-books-images/".$row['img_url'];
+          
+          $files_dir = "informatic-books/".$row['book_url'];
+          echo "<img src='" . $img_url . "' alt='".$row['book_name']."' width='16x16' class='mr-2'>" . "<a download href='$files_dir' class='text-dark'>" . $row['book_name'] ."</a>" . "<br>" . "<hr>";
+          
+          
+          // echo $row['name'] . filesize($files_dir);
+          // echo "<a href='files-data/$row['bookName']'>$row['name']</a>" . "<br>";
+          // echo "<a download href='$row['bookName']' class='text-white'>$file_name</a>" . "<br>";
+        }
+        ?>
+         </div>
+         
+         <div class="col-4 d-grid">
+         <?php
+        echo "<div class='books-size'>
+        <h3 class='bg-success p-2 text-white'>Books size</h3>
+        </div>";
+        
+        ?>
+        
+        <?php
+        $connect = include('admin/dbconfig.php');
+        $data_connect = mysqli_connect($host,$username,$password,$data_base);
+        $query = "SELECT * FROM `informatic`";
+        $result = mysqli_query($data_connect,$query);
+        while ($row = mysqli_fetch_array($result)){
+          
+          $files_dir = "informatic-books/".$row['book_url'];
+          $count_size = 0;
+          $file_size =  $count_size + filesize($files_dir);
+          if($file_size >= 1073741824)
+          {
+            $file_size = number_format($file_size / 1073741824) . ' GB';
+          }
+          elseif($file_size >= 1048576)
+          {
+            $file_size = number_format($file_size / 1048576) . ' MB';
+          }
+          elseif($file_size >= 1024)
+          {
+            $file_size = number_format($file_size / 1024) . ' KB';
+          }
+          elseif($file_size > 1)
+          {
+            $file_size = $file_size . " bytes";
+          }
+          elseif($file_size == 1)
+          {
+            $file_size = $file_size . ' byte';
+          }
+          else
+          {
+            $file_size = '0 bytes';
+          }
+          echo "<i class='text-dark'>" . $file_size . "</i>" . "<br>" . "<hr>";
+          
+          
+          // echo $row['name'] . filesize($files_dir);
+          // echo "<a href='files-data/$row['bookName']'>$row['name']</a>" . "<br>";
+          // echo "<a download href='$row['bookName']' class='text-white'>$file_name</a>" . "<br>";
+        }
+        ?>
+         </div>
+       </div>
+       
+        </div>
+ </div>
+        </div>
+        <!-- end books page -->
     <script src="js/javascript.js"></script>
   </body>
 </html>

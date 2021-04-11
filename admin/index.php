@@ -1,6 +1,6 @@
 <?php
-// $connect = include('dbconfig.php');
-$data_connect = mysqli_connect("192.168.43.61","prince.tagaev","Prince211101","library");
+$connect = include('dbconfig.php');
+$data_connect = mysqli_connect($host,$username,$password,$data_base);
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $file = $_FILES['file']['name'];

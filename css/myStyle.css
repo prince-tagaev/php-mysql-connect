@@ -1,6 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  border: 3px solid #ccc;
+}
 .books {
   display: none;
 }
+
 #books-index {
   background-color: rgb(0, 0, 0, 0.8);
   z-index: 1000;
@@ -8,7 +16,7 @@
   height: 100%;
   position: absolute;
   top: 0%;
-  left: 0;
+  left: 0%;
 }
 .get-file-mysql {
   overflow: auto;
@@ -17,4 +25,42 @@
 
 #header {
   z-index: 200000;
+}
+
+#banner {
+  background-image: url(../img/banner-library.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  max-height: 200px;
+  min-height: 200px;
+  align-items: center;
+  position: relative;
+  /* padding: 100px; */
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+}
+#banner > h1 {
+  border: 3px solid rgb(255, 255, 255);
+  /* text-shadow: 10px 10px 10px; */
+  box-shadow: 0px 0px 50px rgb(97, 153, 238);
+  background-color: rgba(97, 153, 238, 0.692);
+  /* margin: 100px auto; */
+  left: 35%;
+  position: absolute;
+  top: 30%;
+  align-items: center;
+}
+
+.insert-book {
+  border-radius: 50%;
+  margin-left: 70%;
+  cursor: pointer;
+  outline: none;
+}
+.insert-book:hover{
+  box-shadow: 0px 0px 10px rgb(255, 195, 31);
+  /* color: red; */
+  outline: none;
 }
