@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="icon" href="img/asaba-logo.png"> 
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -19,41 +21,31 @@
   </head>
   <body>
 
+  <div id="header">
   <?php include "navbar.php" ?>
+  </div>
     
-<div id="wrapper">
-<div></div>
-<main style="min-height: 620px;">
+<div class="wrapper" id="scroll-none">
+<main style="min-height: 440px;">
     <div class="container">
       <?php
       echo "Hello";
       ?>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iure fugit ratione asperiores voluptates soluta perferendis atque nam cumque harum molestias odit odio in, inventore, facilis autem sequi! Sit temporibus autem suscipit. Soluta tempora quam aspernatur neque, quidem esse fuga quasi incidunt optio assumenda eius perspiciatis obcaecati cum velit doloribus culpa eaque ipsa corrupti, nobis enim harum amet. Voluptatum repellat temporibus magni ipsum enim. Est assumenda dolor ullam, magnam ut debitis architecto accusamus fugit quibusdam, quisquam consectetur unde sit saepe illo repudiandae eligendi. Ducimus illum voluptate culpa amet necessitatibus fuga itaque modi sequi quas deleniti, nobis doloremque. Officiis, sapiente. Ratione. Zuhridin
 
-        <div class="get_file bg-secondary p-3">
-
-        <?php
-        $dir_path = 'img/';
         
-        if(is_dir($dir_path)){
-          $files = opendir($dir_path);
-          {
-            if ($files) {
-              while (($file_name = readdir($files)) !== FALSE) {
-                if ($file_name != "." && $file_name != "..") {
-                  // echo $file_name;
-                  echo "<a download href='$dir_path$file_name' class='text-white'>$file_name</a>" . "<br>";
-                }
-              }
-            }
-          }
-        }
+    </div>
 
+
+
+</main>
+<!-- begin books page -->
+
+<div class="books justify-content-center" id="books-index">
         
-        ?>
-        </div>
-
-        <div class="get-file-mysql mt-3 bg-secondary p-3">
+ <div class="container">
+ <div class="get-file-mysql mt-3 bg-light text-dark p-3" style="max-height:400px; min-height:400px;">
+        <span class="close">x</span>
         <?php
         
         $data_connect = mysqli_connect("192.168.43.61","prince.tagaev","Prince211101","library");
@@ -88,7 +80,7 @@
           {
             $file_size = '0 bytes';
           }
-          echo "<a download href='files-data/" . $row['bookName'] . "' class='text-white'>" . $row['name'] ."</a>"  . "<i class='text-white'>" ." - " . $file_size . "</i>" . "<br>";
+          echo "<a download href='files-data/" . $row['bookName'] . "' class='text-dark'>" . $row['name'] ."</a>"  . "<i class='text-dark'>" ." - " . $file_size . "</i>" . "<br>";
           
           
           // echo $row['name'] . filesize($files_dir);
@@ -96,14 +88,13 @@
           // echo "<a download href='$row['bookName']' class='text-white'>$file_name</a>" . "<br>";
         }
         ?>
-        <!-- <a href="<?php $row['bookName']?>"><?php $row['name'] ?></a> -->
+
         </div>
-    </div>
-
-
-
-</main>
+ </div>
+        </div>
+        <!-- end books page -->
 </div>
+
 <footer class="w-100 bg-dark  text-light text-center" style="line-height:4">
 <div class="inner_footer container">
 <!-- <input type="date"> -->
@@ -112,21 +103,7 @@ days();
 ?>
 </div>
 </footer>
-    <script>
-        // var search_btn = document.getElementById('btn-search')
-        // search_btn.onclick = function (){
-           
-        // }
-        $(document).ready(function(){
-          $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#wrapper *").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-          });
-        });
-        
-        </script>
+
         
 
 
@@ -169,5 +146,7 @@ days();
 
 
     ?>
+
+    <script src="js/javascript.js"></script>
   </body>
 </html>

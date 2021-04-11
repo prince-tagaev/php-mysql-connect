@@ -1,5 +1,6 @@
 <head>
 <title><?php $title = file_get_contents("files/title.txt"); echo $title ?></title>
+
 <link rel="stylesheet" href="css/all.css">
     <link
       rel="stylesheet"
@@ -29,7 +30,7 @@
               <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="books.php">Books</a>
+              <a class="nav-link" href="#" id="books-bar">Books</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
@@ -41,3 +42,4 @@
           </form>
         </div>
       </nav>
+      <script src="js/javascript.js"></script>

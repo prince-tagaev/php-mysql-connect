@@ -63,3 +63,27 @@ do{
 
 
    <!-- sikil -->
+
+   <!-- Get file from folder -->
+   <div class="get_file bg-secondary p-3">
+
+        <?php
+        $dir_path = 'img/';
+        
+        if(is_dir($dir_path)){
+          $files = opendir($dir_path);
+          {
+            if ($files) {
+              while (($file_name = readdir($files)) !== FALSE) {
+                if ($file_name != "." && $file_name != "..") {
+                  // echo $file_name;
+                  echo "<a download href='$dir_path$file_name' class='text-white'>$file_name</a>" . "<br>";
+                }
+              }
+            }
+          }
+        }
+
+        
+        ?>
+        </div>
