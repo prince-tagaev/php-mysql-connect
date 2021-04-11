@@ -14,7 +14,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4./js/bootstrap.min.js"></script>
     
   </head>
   <body>
@@ -23,14 +23,14 @@
     
 <div id="wrapper">
 <div></div>
-<main style="min-height: 540px;">
+<main style="min-height: 620px;">
     <div class="container">
       <?php
       echo "Hello";
       ?>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iure fugit ratione asperiores voluptates soluta perferendis atque nam cumque harum molestias odit odio in, inventore, facilis autem sequi! Sit temporibus autem suscipit. Soluta tempora quam aspernatur neque, quidem esse fuga quasi incidunt optio assumenda eius perspiciatis obcaecati cum velit doloribus culpa eaque ipsa corrupti, nobis enim harum amet. Voluptatum repellat temporibus magni ipsum enim. Est assumenda dolor ullam, magnam ut debitis architecto accusamus fugit quibusdam, quisquam consectetur unde sit saepe illo repudiandae eligendi. Ducimus illum voluptate culpa amet necessitatibus fuga itaque modi sequi quas deleniti, nobis doloremque. Officiis, sapiente. Ratione. Zuhridin
 
-        <div class="get_file bg-secondary p-2">
+        <div class="get_file bg-secondary p-3">
 
         <?php
         $dir_path = 'img/';
@@ -55,13 +55,43 @@
 
         <div class="get-file-mysql mt-3 bg-secondary p-3">
         <?php
+        
         $data_connect = mysqli_connect("192.168.43.61","prince.tagaev","Prince211101","library");
         $query = "SELECT * FROM `books`";
         $result = mysqli_query($data_connect,$query);
         while ($row = mysqli_fetch_array($result)){
           
-
-          echo "<a download href='files-data/" . $row['bookName'] . "' class='text-white'>" . $row['name'] . "</a>" . "<br>";
+          $files_dir = "files-data/".$row['bookName'];
+          $count_size = 0;
+          $file_size =  $count_size + filesize($files_dir);
+          if($file_size >= 1073741824)
+          {
+            $file_size = number_format($file_size / 1073741824) . ' GB';
+          }
+          elseif($file_size >= 1048576)
+          {
+            $file_size = number_format($file_size / 1048576) . ' MB';
+          }
+          elseif($file_size >= 1024)
+          {
+            $file_size = number_format($file_size / 1024) . ' KB';
+          }
+          elseif($file_size > 1)
+          {
+            $file_size = $file_size . " bytes";
+          }
+          elseif($file_size == 1)
+          {
+            $file_size = $file_size . ' byte';
+          }
+          else
+          {
+            $file_size = '0 bytes';
+          }
+          echo "<a download href='files-data/" . $row['bookName'] . "' class='text-white'>" . $row['name'] ."</a>"  . "<i class='text-white'>" ." - " . $file_size . "</i>" . "<br>";
+          
+          
+          // echo $row['name'] . filesize($files_dir);
           // echo "<a href='files-data/$row['bookName']'>$row['name']</a>" . "<br>";
           // echo "<a download href='$row['bookName']' class='text-white'>$file_name</a>" . "<br>";
         }
@@ -74,7 +104,7 @@
 
 </main>
 </div>
-<footer class="w-100 bg-dark p-2 text-light text-center">
+<footer class="w-100 bg-dark  text-light text-center" style="line-height:4">
 <div class="inner_footer container">
 <!-- <input type="date"> -->
 <?php
