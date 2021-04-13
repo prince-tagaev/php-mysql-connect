@@ -1,5 +1,5 @@
 var modal = document.getElementById('books-index')
-var btn = document.getElementById('informatca-aside')
+var btn = document.getElementById('informatica-aside')
 var none = document.getElementById('scroll-none')
 var close = document.getElementsByClassName('close')[0];
 

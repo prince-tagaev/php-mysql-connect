@@ -37,7 +37,7 @@
        </div>
        <div class="col-4 bg-secondary p-2 text-white">
          <ul>
-           <li><a href="#" class="text-warning" id="informatca-aside">Информатика</a></li>
+           <li><a href="#" class="text-warning" id="informatica-aside">Информатика</a></li>
          </ul>
        </div>
      </div>
@@ -110,7 +110,7 @@ days();
  <div class="container">
  <div class="get-file-mysql mt-3 bg-light text-dark p-3" style="max-height:400px; min-height:400px;">
         
-        <h3 class="text-center bg-secondary text-light p-2">Books <a href="informatic-database.php" class="insert-book btn btn-outline-warning p-2">Insert book</a> <span class="close text-light">x</span></h3>
+        <h3 class="text-center bg-secondary text-light p-2">Books  <span class="close text-light">x</span></h3>
        <div class="row d-flex">
          <div class="col-8 d-grid">
          <?php
@@ -131,7 +131,7 @@ days();
           $img_url = "informatic-books-images/".$row['img_url'];
           
           $files_dir = "informatic-books/".$row['book_url'];
-          echo "<img src='" . $img_url . "' alt='".$row['book_name']."' width='16x16' class='mr-2'>" . "<a download href='$files_dir' class='text-dark'>" . $row['book_name'] ."</a>" . "<br>" . "<hr>";
+          echo "<img src='" . $img_url . "' alt='".$row['book_name']."' width='32x32' class='mr-2'>" . "<a download href='$files_dir' class='text-dark'>" . $row['book_name'] ."</a>" . "<br>" . "<hr>";
           
           
           // echo $row['name'] . filesize($files_dir);
@@ -196,6 +196,7 @@ days();
        
         </div>
  </div>
+        </div>
         </div>
         <!-- end books page -->
     <script src="js/javascript.js"></script>
