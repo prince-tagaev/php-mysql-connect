@@ -64,3 +64,10 @@
   /* color: red; */
   outline: none;
 }
+
+ul > li {
+  list-style: none !important;
+}
+.min-height{
+  min-height: 400px !important;
+}

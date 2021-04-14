@@ -47,8 +47,7 @@
             <div class="col-7">
                 <div class="m-5">
                     <div class="blog">
-                        
-                    blog admin panel
+
                     </div>
                 </div>
             </div>

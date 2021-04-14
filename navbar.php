@@ -1,5 +1,5 @@
 <head>
-<title><?php $title = file_get_contents("files/title.txt"); echo $title ?></title>
+<title><?php $title_top = file_get_contents("files/title.txt"); echo $title_top ?></title>
 
 <link rel="stylesheet" href="css/all.css">
     <link
@@ -27,10 +27,12 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/php-mysql-connect">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/php-mysql-connect" onclick="home_btn()">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="books-bar">Books</a>
+              <a class="nav-link" href="#" id="books-bar" onclick="books_btn()">Books</a>
+            </li> <li class="nav-item">
+              <a class="nav-link" href="#" id="news-bar" onclick="news_btn()">News</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
@@ -43,3 +45,4 @@
         </div>
       </nav>
       <script src="js/javascript.js"></script>
+      <script src="just.js"></script>

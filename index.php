@@ -1,3 +1,6 @@
+<?php
+include_once "login.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/myStyle.css">
+      <link rel="stylesheet" href="just.css">
     <link rel="icon" href="img/asaba-logo.png"> 
     <link
       rel="stylesheet"
@@ -32,12 +36,29 @@
 <main style="min-height: 440px;">
     <div class="container">
      <div class="row p-2 justify-content-center">
-       <div class="col-7 bg-primary p-2 mr-2">
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sequi voluptates porro ratione. Animi odio quaerat deleniti eum dicta illo voluptates id, inventore iure perspiciatis architecto delectus. Quasi, ratione officia?
+       <div class="col-7 p-2 mr-2">
+         <div class="news border p-1" style="width: 18rem;">
+             <img class="card-img-top" src="img/asaba-logo.png" alt="">
+             <div class="card-body">
+                 <h4 class="card-title text-primary"><?php echo $title ?></h4>
+                 <p class="card-text"><?php echo substr($description, 0,50) ?></p>
+
+                     <a href="#" class="btn btn-success">More...</a>
+                 <br>
+                 <i class="text-secondary">Publish date: <?php echo $publish_date ?></i>
+             </div>
+         </div><div class="news-2" id="news-2">
+               <ul class="p-3">
+                   <li class="mt-2"><a class="btn btn-primary w-50" href="#" id="informatica-aside">Computer science</a></li>
+                   <li class="mt-2"><a class="btn btn-primary w-50" href="#" id="literature">Literature</a></li>
+               </ul>
+               </div>
        </div>
-       <div class="col-4 bg-secondary p-2 text-white">
-         <ul>
-           <li><a href="#" class="text-warning" id="informatica-aside">Информатика</a></li>
+       <div class="col-3 bg-secondary p-2 text-white ml-5 min-height">
+         <ul class="p-3">
+           <li class="mt-2"><a href="tel:+996995211101" class="text-warning" >phone: 0995-21-11-01</a></li>
+           <li class="mt-2"><a href="mail:asaba@internet.ru" class="text-warning" >email: asaba@internet.ru</a></li>
+           <li class="mt-2"><a href="https://instagram.com/asaba.kg" class="text-warning" >instagram: @asaba.kg</a></li>
          </ul>
        </div>
      </div>
@@ -140,7 +161,7 @@ days();
         }
         ?>
          </div>
-         
+
          <div class="col-4 d-grid">
          <?php
         echo "<div class='books-size'>
@@ -200,5 +221,6 @@ days();
         </div>
         <!-- end books page -->
     <script src="js/javascript.js"></script>
+<script src="just.js"></script>
   </body>
 </html>
