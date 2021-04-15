@@ -105,7 +105,7 @@ ul {
 }
 
 ul li a {
-  color: rgb(50, 62, 88);
+  color: rgb(84, 255, 25);
   padding: 0px;
   font-size: 20px;
   /* text-transform: uppercase; */
@@ -114,4 +114,10 @@ ul li a {
 }
 ul li a:hover {
   color: rgb(240, 240, 240);
+}
+.display_none{
+  display: none;
+}
+.display_block{
+  display: block;
 }

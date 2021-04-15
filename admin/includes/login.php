@@ -12,18 +12,27 @@ if ($log == $login && $pass == $password){
     $_SESSION["password"] = $pass;
 } 
 
-// elseif ($log != $login and $pass == $password){
-//     echo "<script> alert('Error log in') </script>";
-//     // header('Location: ../');
-    
-// }
+ elseif ($log != $login and $pass == $password){
+     echo "<script>
+alert('Error log in') ;
+window.location.assign('../')
 
-// elseif ($log == $login and $pass != $password){
-//     echo "Error password";
-// }
+</script>";
+    
+ }
+
+ elseif ($log == $login and $pass != $password){
+     echo "<script>
+alert('Error password') ;
+window.location.assign('../')
+
+</script>";
+ }
 
 else{
-    // echo "log in and password error";
-    
-    header('Location: ../');
+    echo "<script>
+alert('log in and password error') ;
+window.location.assign('../')
+
+</script>";
 }

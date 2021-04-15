@@ -1,3 +1,12 @@
+<?php
+session_start();
+$login = "admin";
+$password = "password";
+if($_SESSION["login"] != $login || $_SESSION["password"] != $password){
+    header('Location: /php-mysql-connect/admin');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +25,7 @@
     />
     <title>Admin Panel</title>
 </head>
-<body>
+<body onload="main_load()">
     <div class="container bg-light wrapper">
          <div class="navbar-light text-white bg-secondary menu">
             <div class="row d-flex">
@@ -36,22 +45,66 @@
            
             <div class="col-2 aside bg-secondary">
             <ul>
-                <li><a href="informatica.php">Информатика</a></li>
-                <li><a href="#">Манас</a></li>
-                <li><a href="#">Драмма</a></li>
-                <li><a href="#">Музыка</a></li>
-                <li><a href="adabiyat.php">Адабият</a></li>
+                <h5 class="text-light bg-danger p-2">Update or Delete</h5>
+                <li><a href="#computer_science" onclick="computerScienceBtn()">Информатика</a></li>
+<!--                <li><a href="#">Манас</a></li>-->
+<!--                <li><a href="#">Драмма</a></li>-->
+<!--                <li><a href="#">Музыка</a></li>-->
+                <li><a href="#" >News</a></li>
             </ul>
             </div>
         
             <div class="col-7">
                 <div class="m-5">
                     <div class="blog">
+<!--                        main-->
+                        <div class="main display_none" id="main">
+                            <h3 class="text-primary">Insert Books about Computer science</h3>
+                            <div class="wrapper">
 
+                                <div class="container">
+                                    <form action="computer-sience.php" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Book Name:</label>
+                                            <input type="text" name="b-name" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Book:</label>
+                                            <input type="file" name="b-url" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Image:</label>
+                                            <input type="file" name="b-img" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Book Author:</label>
+                                            <input type="text" name="b-author" class="form-control">
+                                        </div>
+
+                                        <input type="submit" name="submit" value="Upload The Book" class="btn btn-primary">
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+<!--                        end main-->
+
+<!--Computer science-->
+<div class="display_none" id="computer_science">
+    <?php include_once "computer-sience.php"?>
+    </div>
+<!--end computer science-->
+<!--                        blog news-->
+                        <div class="display_none" id="news">
+
+                        </div>
+</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="admin-panel.js"></script>
 </body>
 </html>

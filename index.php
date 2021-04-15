@@ -45,7 +45,7 @@ include_once "login.php"
 
                      <a href="#" class="btn btn-success">More...</a>
                  <br>
-                 <i class="text-secondary">Publish date: <?php echo $publish_date ?></i>
+                 <i class="text-secondary mt-2">Publish date: <?php echo $publish_date ?></i>
              </div>
          </div><div class="news-2" id="news-2">
                <ul class="p-3">
@@ -142,17 +142,18 @@ days();
         ?>
         
         <?php
-        
-        $connect = include('admin/dbconfig.php');
+
+         $connect_dbConfig = require_once 'admin/dbconfig.php';
         $data_connect = mysqli_connect($host,$username,$password,$data_base);
         $query = "SELECT * FROM `informatic`";
         $result = mysqli_query($data_connect,$query);
-        
+
+
         while ($row = mysqli_fetch_array($result)){
           $img_url = "informatic-books-images/".$row['img_url'];
           
           $files_dir = "informatic-books/".$row['book_url'];
-          echo "<img src='" . $img_url . "' alt='".$row['book_name']."' width='32x32' class='mr-2'>" . "<a download href='$files_dir' class='text-dark'>" . $row['book_name'] ."</a>" . "<br>" . "<hr>";
+          echo "<img src='" . $img_url . "' alt='".$row['book_name']."' width='16x16' class='mr-2'>" . "<a download href='$files_dir' class='text-dark'>" . $row['book_name'] ."</a>" . "<br>" . "<hr>";
           
           
           // echo $row['name'] . filesize($files_dir);
