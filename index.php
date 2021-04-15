@@ -1,5 +1,5 @@
 <?php
-include_once "login.php"
+include_once "admin/news.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,17 +37,35 @@ include_once "login.php"
     <div class="container">
      <div class="row p-2 justify-content-center">
        <div class="col-7 p-2 mr-2">
-         <div class="news border p-1" style="width: 18rem;">
-             <img class="card-img-top" src="img/asaba-logo.png" alt="">
-             <div class="card-body">
-                 <h4 class="card-title text-primary"><?php echo $title ?></h4>
-                 <p class="card-text"><?php echo substr($description, 0,50) ?></p>
+         <div class="new">
+             <h3 class="text-center text-success">Жанылыктар | News | Новости</h3>
 
-                     <a href="#" class="btn btn-success">More...</a>
-                 <br>
-                 <i class="text-secondary mt-2">Publish date: <?php echo $publish_date ?></i>
-             </div>
-         </div><div class="news-2" id="news-2">
+             <?php
+             while($news = mysqli_fetch_array($query)){
+
+                 $title = $news['title'];
+                 $news_img = $news['image_url'];
+                 $full_text = $news['full_text'];
+                 $publish_date = $news['publish_date'];
+                 echo '<div class="card p-1 d-inline-block ml-2" style="width: 48%; vertical-align: top; min-height: 435px;">
+                 <img class="card-img-top" src="img/asaba-logo.png" alt="">
+                 <div class="card-body">
+                     <h4 class="card-title text-primary"> '.$title.'</h4>
+                     <p class="card-text">'.substr($full_text, 0,100).'...<a href="templates/more-news.php?id='.$news['id'].'" class="card-link">More...</a></p>
+                       <i class="text-muted mt-2 text-right" style="font-size: 10px;"><p>Publish date: '.$publish_date.'</p></i>
+                     
+                     
+                     
+                 </div>
+             </div>';
+             }
+             ?>
+             <h6 class="text-right card-text text-muted" >Жанылыктардын саны: <?php include_once 'count.php';
+
+                 ?></h6>
+
+         </div>
+           <div class="news-2" id="news-2">
                <ul class="p-3">
                    <li class="mt-2"><a class="btn btn-primary w-50" href="#" id="informatica-aside">Computer science</a></li>
                    <li class="mt-2"><a class="btn btn-primary w-50" href="#" id="literature">Literature</a></li>

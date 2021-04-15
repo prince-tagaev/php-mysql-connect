@@ -50,7 +50,7 @@ if($_SESSION["login"] != $login || $_SESSION["password"] != $password){
 <!--                <li><a href="#">Манас</a></li>-->
 <!--                <li><a href="#">Драмма</a></li>-->
 <!--                <li><a href="#">Музыка</a></li>-->
-                <li><a href="#" >News</a></li>
+                <li><a href="#news" onclick="newsBtn()">News</a></li>
             </ul>
             </div>
         
@@ -58,7 +58,7 @@ if($_SESSION["login"] != $login || $_SESSION["password"] != $password){
                 <div class="m-5">
                     <div class="blog">
 <!--                        main-->
-                        <div class="main display_none" id="main">
+                        <div class="insert-book display_none" id="main">
                             <h3 class="text-primary">Insert Books about Computer science</h3>
                             <div class="wrapper">
 
@@ -88,7 +88,8 @@ if($_SESSION["login"] != $login || $_SESSION["password"] != $password){
                             </div>
                         </div>
 
-<!--                        end main-->
+<!--                        end book-->
+
 
 <!--Computer science-->
 <div class="display_none" id="computer_science">
@@ -97,7 +98,7 @@ if($_SESSION["login"] != $login || $_SESSION["password"] != $password){
 <!--end computer science-->
 <!--                        blog news-->
                         <div class="display_none" id="news">
-
+                        <?php require_once 'news.php'?>
                         </div>
 </div>
                     </div>

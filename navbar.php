@@ -30,9 +30,9 @@
               <a class="nav-link" href="/php-mysql-connect" onclick="home_btn()">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="books-bar" onclick="books_btn()">Books</a>
+              <a class="nav-link" href="#book" id="books-bar" onclick="books_btn()">Books</a>
             </li> <li class="nav-item">
-              <a class="nav-link" href="#" id="news-bar" onclick="news_btn()">News</a>
+              <a class="nav-link" href="#news" id="news-bar" onclick="news_btn()">News </a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>

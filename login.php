@@ -9,7 +9,7 @@ while ($base = mysqli_fetch_array($result)){
     global $description;
     global $publish_date;
     $title = $base["title"];
-    $description = $base["description"];
+    $description = $base["full_text"];
     $publish_date = $base["publish_date"];
 }
 

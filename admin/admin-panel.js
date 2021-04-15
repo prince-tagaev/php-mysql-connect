@@ -5,8 +5,12 @@ const  main = document.getElementById('main');
 function computerScienceBtn() {
     computerScience.classList.add('display_block')
     main.classList.remove('display_block')
-
-}function main_load() {
+}
+function newsBtn() {
+    news.classList.add('display_block')
+    main.classList.remove('display_block')
+}
+function main_load() {
     main.classList.add('display_block')
 
 }
